@@ -111,11 +111,11 @@ export default function Home() {
           <p style={{margin:0, color:'#fca5a5'}}>
             Documentación, guías y prácticas del módulo.
           </p>
-
+          {/*
           <div style={{display:'flex', gap:12, flexWrap:'wrap', marginTop:16}}>
             <a href="/docs/intro" style={btnPrimary}>Entrar al temario →</a>
             <a href="/blog" style={btnGhost}>Novedades del módulo</a>
-          </div>
+          </div>*/}
         </header>
 
         {/* GRID DE TARJETAS */}
@@ -127,26 +127,31 @@ export default function Home() {
           {/* Guía rápida */}
           <article className="lift-card" style={cardStyle('#3b0a0a','#b71c1c','#d32f2f')}>
             <div className="glow" style={glowStyle}></div>
-            <span style={pill('#f87171')}>Inicio</span>
-            <h3 style={title}>Guía rápida</h3>
+            <span style={pill('#f87171')}>UD1</span>
+            <h3 style={title}>ERP-CRM</h3>
             <p style={desc}>
-              Requisitos, setup y cómo empezar en el módulo.
+              Instalación y configuración de los ERPs
             </p>
-            <a href="/docs/intro" style={btn('#d32f2f')}>Ver guía <span style={arrow}>→</span></a>
+            <div style={{ textAlign: 'center' }}>
+              <a href="/docs/category/tema-1" style={btn('#d32f2f')}>
+                IR <span style={arrow}>→</span>
+              </a>
+            </div>
+            
           </article>
 
-          {/* Temario */}
+          {/* Temario 
           <article className="lift-card" style={cardStyle('#3b0a0a','#b71c1c','#d32f2f')}>
             <div className="glow" style={glowStyle}></div>
             <span style={pill('#f87171')}>Docs</span>
-            <h3 style={title}>Temario</h3>
+            <h3 style={title}>Tema 1</h3>
             <p style={desc}>
               Unidades del módulo: Odoo, ERP, procesos de negocio…
             </p>
-            <a href="/docs/temario" style={btn('#d32f2f')}>Abrir temario <span style={arrow}>→</span></a>
+            <a href="/docs/category/tema-1" style={btn('#d32f2f')}>Ir <span style={arrow}>→</span></a>
           </article>
 
-          {/* Prácticas */}
+         
           <article className="lift-card" style={cardStyle('#3b0a0a','#b71c1c','#d32f2f')}>
             <div className="glow" style={glowStyle}></div>
             <span style={pill('#fca5a5')}>Trabajo</span>
@@ -157,7 +162,7 @@ export default function Home() {
             <a href="/docs/practicas/overview" style={btn('#d32f2f')}>Ver prácticas <span style={arrow}>→</span></a>
           </article>
 
-          {/* Recursos */}
+
           <article className="lift-card" style={cardStyle('#3b0a0a','#b71c1c','#d32f2f')}>
             <div className="glow" style={glowStyle}></div>
             <span style={pill('#fecaca')}>Extra</span>
@@ -166,26 +171,10 @@ export default function Home() {
               Material extra: plugins, manuales, bibliografía.
             </p>
             <a href="/docs/recursos" style={btn('#d32f2f')}>Abrir recursos <span style={arrow}>→</span></a>
-          </article>
+          </article>*/}
         </section>
 
-        {/* CTA final */}
-        <section style={{maxWidth:1100, margin:'0 auto 56px', padding:'0 16px'}}>
-          <div style={{
-            borderRadius:18, padding:20,
-            background:'linear-gradient(135deg, rgba(255,255,255,.06), rgba(255,255,255,.03))',
-            border:'1px solid rgba(255,255,255,.08)'
-          }}>
-            <h3 style={{margin:'0 0 8px'}}>¿Listo para empezar?</h3>
-            <p style={{margin:'0 0 14px', color:'rgba(226,232,240,.85)'}}>
-              Ve directo al índice o consulta recursos adicionales.
-            </p>
-            <div style={{display:'flex', gap:12, flexWrap:'wrap'}}>
-              <a href="/docs/intro" style={btnPrimary}>Ir a /docs/intro →</a>
-              <a href="/" style={btnGhost}>Volver a ErciApps</a>
-            </div>
-          </div>
-        </section>
+        
       </div>
     </Layout>
   );

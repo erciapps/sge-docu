@@ -26,14 +26,14 @@ const config = {
       ({
         docs: {
           sidebarPath: './sidebars.js',
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+         // editUrl:
+           // 'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
         blog: {
           showReadingTime: true,
           feedOptions: { type: ['rss', 'atom'], xslt: true },
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+         // editUrl:
+        //    'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
           onUntruncatedBlogPosts: 'warn',
@@ -41,6 +41,23 @@ const config = {
         theme: { customCss: './src/css/custom.css' },
       }),
     ],
+  ],
+    // 👉 Alias para que 'react-player' sea la versión lazy (no rompe SSR)
+  plugins: [
+    function aliasReactPlayer() {
+      return {
+        name: 'alias-react-player-lazy',
+        configureWebpack() {
+          return {
+            resolve: {
+              alias: {
+                'react-player': require.resolve('react-player/lazy'),
+              },
+            },
+          };
+        },
+      };
+    },
   ],
 
   themeConfig: ({
@@ -53,52 +70,30 @@ const config = {
         href: 'https://erciapps.sytes.net', // aquí fuerzas el destino
       },
       items: [
-        {
-          type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
-          position: 'left',
-          label: 'Tutorial',
-        },
-        { to: '/blog', label: 'Blog', position: 'left' },
-        {
-          href: 'https://github.com/facebook/docusaurus',
-          label: 'GitHub',
-          position: 'right',
-        },
+        { to: '/', label: 'Inicio', position: 'left' },
+          {to: '/docs/category/tema-1', label: 'Tema 1', position: 'left'},
+          
+        
       ],
     },
     footer: {
       style: 'dark',
-      links: [
-        {
-          title: 'Docs',
-          items: [{ label: 'Tutorial', to: '/docs/intro' }],
-        },
-        {
-          title: 'Community',
-          items: [
-            {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-            },
-            { label: 'Discord', href: 'https://discordapp.com/invite/docusaurus' },
-            { label: 'X', href: 'https://x.com/docusaurus' },
-          ],
-        },
-        {
-          title: 'More',
-          items: [
-            { label: 'Blog', to: '/blog' },
-            { label: 'GitHub', href: 'https://github.com/facebook/docusaurus' },
-          ],
-        },
-      ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      
+      copyright: `Copyright © ${new Date().getFullYear()} ErciApps`,
     },
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
-    },
+    },      zoom: {
+        selector: '.markdown :not(em) > img',
+        background: {
+          light: 'rgb(255, 255, 255)',
+          dark: 'rgb(50, 50, 50)'
+        },
+        config: {
+          // options you can specify via https://github.com/francoischalifour/medium-zoom#usage
+        }
+      }
   }),
 };
 
