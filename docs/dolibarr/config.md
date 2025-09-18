@@ -8,7 +8,7 @@ sidebar_position: 2
 
 Crea un stack con este código en tu servidor Docker
 
-```
+``` java
 services:
   web:
     image: dolibarr/dolibarr:latest
@@ -19,6 +19,8 @@ services:
       - DOLI_DB_NAME=dolibarr
       - DOLI_DB_USER=dolibarr
       - DOLI_DB_PASSWORD=dolipass
+    volumes:
+      - ./dolibarr_documents:/var/www/html/documents
     mem_limit: 512m
     restart: unless-stopped
 
@@ -30,6 +32,8 @@ services:
       - MARIADB_PASSWORD=dolipass
       - MARIADB_ROOT_PASSWORD=rootpass
     command: ["--innodb_buffer_pool_size=128M","--max_connections=80"]
+    volumes:
+      - ./mariadb_data:/var/lib/mysql
     mem_limit: 512m
     restart: unless-stopped
 
