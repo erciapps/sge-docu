@@ -1,0 +1,8 @@
+{
+  "label": "Modulos Odoo",
+  "position": 5,
+  "link": {
+    "type": "generated-index",
+    "description": "Desarrollo de módulos en odoo"
+  }
+}

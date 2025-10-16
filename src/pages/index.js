@@ -127,51 +127,67 @@ export default function Home() {
           {/* Guía rápida */}
           <article className="lift-card" style={cardStyle('#3b0a0a','#b71c1c','#d32f2f')}>
             <div className="glow" style={glowStyle}></div>
-            <span style={pill('#f87171')}>UD1</span>
-            <h3 style={title}>ERP-CRM</h3>
+            <span style={pill('#f87171')}>SGE</span>
+            <h3 style={title}>TEORÍA</h3>
             <p style={desc}>
-              Instalación y configuración de los ERPs
+              Conceptos sobre ERC-CRM
             </p>
             <div style={{ textAlign: 'center' }}>
-              <a href="/docs/category/tema-1" style={btn('#d32f2f')}>
+              <a href="/docs/category/teoría" style={btn('#d32f2f')}>
                 IR <span style={arrow}>→</span>
               </a>
             </div>
             
           </article>
 
-          {/* Temario 
-          <article className="lift-card" style={cardStyle('#3b0a0a','#b71c1c','#d32f2f')}>
-            <div className="glow" style={glowStyle}></div>
-            <span style={pill('#f87171')}>Docs</span>
-            <h3 style={title}>Tema 1</h3>
-            <p style={desc}>
-              Unidades del módulo: Odoo, ERP, procesos de negocio…
-            </p>
-            <a href="/docs/category/tema-1" style={btn('#d32f2f')}>Ir <span style={arrow}>→</span></a>
-          </article>
-
+          
+        
          
           <article className="lift-card" style={cardStyle('#3b0a0a','#b71c1c','#d32f2f')}>
             <div className="glow" style={glowStyle}></div>
-            <span style={pill('#fca5a5')}>Trabajo</span>
-            <h3 style={title}>Prácticas</h3>
+            <span style={pill('#fca5a5')}>Proyectos</span>
+            <h3 style={title}>PRÁCTICAS</h3>
             <p style={desc}>
               Ejercicios, retos guiados y casos con Odoo.
             </p>
-            <a href="/docs/practicas/overview" style={btn('#d32f2f')}>Ver prácticas <span style={arrow}>→</span></a>
+            <div style={{ textAlign: 'center' }}>
+              <a href="/docs/category/proyectos" style={btn('#d32f2f')}>
+                IR <span style={arrow}>→</span>
+              </a>
+            </div>
+    
+          </article>
+
+          
+          <article className="lift-card" style={cardStyle('#3b0a0a','#b71c1c','#d32f2f')}>
+            <div className="glow" style={glowStyle}></div>
+            <span style={pill('#fecaca')}>ODOO</span>
+            <h3 style={title}>MÓDULOS</h3>
+            <p style={desc}>
+              Diseño y desarrollo de módulos en Odoo
+            </p>
+            <div style={{ textAlign: 'center' }}>
+              <a href="/docs/category/modulos-odoo" style={btn('#d32f2f')}>
+                IR <span style={arrow}>→</span>
+              </a>
+            </div>
           </article>
 
 
           <article className="lift-card" style={cardStyle('#3b0a0a','#b71c1c','#d32f2f')}>
             <div className="glow" style={glowStyle}></div>
-            <span style={pill('#fecaca')}>Extra</span>
-            <h3 style={title}>Recursos</h3>
+            <span style={pill('#fecaca')}>Docker</span>
+            <h3 style={title}>DOCKER</h3>
             <p style={desc}>
-              Material extra: plugins, manuales, bibliografía.
+              Prueba de diferentes ERP lanzados en Docker
             </p>
-            <a href="/docs/recursos" style={btn('#d32f2f')}>Abrir recursos <span style={arrow}>→</span></a>
-          </article>*/}
+            <div style={{ textAlign: 'center' }}>
+              <a href="/docs/category/docker" style={btn('#d32f2f')}>
+                IR <span style={arrow}>→</span>
+              </a>
+            </div>
+          </article>
+
         </section>
 
         

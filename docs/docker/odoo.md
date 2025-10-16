@@ -2,9 +2,9 @@
 sidebar_position: 2
 ---
 
-# Configuración inicial
+# Odoo
 
-## Docker
+## Configuración inicial Docker
 
 Crea un stack con este código en tu servidor Docker
 

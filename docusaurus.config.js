@@ -117,7 +117,10 @@ const config = {
         },
         items: [
           { to: '/', label: 'Inicio', position: 'left' },
-          { to: '/docs/category/tema-1', label: 'Tema 1', position: 'left' },
+          { to: '/docs/category/teoría', label: 'Teoría', position: 'left' },
+          { to: '/docs/category/modulos-odoo', label: 'Modulos', position: 'left' },
+          { to: '/docs/category/proyectos', label: 'Proyectos', position: 'left' },
+          { to: '/docs/category/docker', label: 'Docker', position: 'left' },
         ],
       },
 

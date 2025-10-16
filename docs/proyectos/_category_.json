@@ -1,8 +1,8 @@
 {
-  "label": "Odoo",
+  "label": "Proyectos",
   "position": 5,
   "link": {
     "type": "generated-index",
-    "description": "Tema 1"
+    "description": "Proyectos de SGE"
   }
 }

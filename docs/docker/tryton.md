@@ -2,9 +2,9 @@
 sidebar_position: 3
 ---
 
-# Configuración inicial
+# Tryton
 
-## Docker
+## Configuración inicial Docker
 
 Crea un stack con este código en tu servidor Docker
 

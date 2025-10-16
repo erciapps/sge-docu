@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Configuración inicial
+# Dolibarr
 
 ## Docker
 

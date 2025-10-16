@@ -1,8 +1,8 @@
 {
-  "label": "Tema 1",
-  "position": 6,
+  "label": "Teoría",
+  "position": 1,
   "link": {
     "type": "generated-index",
-    "description": "Tema 1"
+    "description": "Teoría del módulo SGE"
   }
 }
