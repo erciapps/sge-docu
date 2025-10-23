@@ -251,3 +251,98 @@ Vistas XML          → Interfaz en Odoo
 | **Relaciones**      | Vinculan modelos entre sí.                         |
 | `@api.*`            | Decoradores para lógica de negocio.                |
 | `_sql_constraints`  | Restricciones de base de datos.                    |
+
+## ACTIVIDAD PROPUESTA
+<details>
+  <summary>👀 Ver actividad</summary>
+
+  
+
+
+Desarrolla el modelo adecuado a la temática asignada.
+**NECESARIO INVESTIGAR Y AÑADIR UN CAMPO `FIELD` DISTINTO A LOS VISTOS**.
+
+### Enunciados de diseño de bases de datos
+
+Cada ejercicio debe desarrollarse **de forma individual**.  
+El primer paso será **diseñar el modelo entidad-relación**, indicando entidades, atributos, claves y relaciones.  
+Podrán incluir **3 o 4 entidades** como máximo, y **solo una relación N:M** (tabla intermedia).
+
+---
+
+### TEMÁTICA 1. Biblioteca escolar
+Diseña una base de datos para gestionar los préstamos de una biblioteca.  
+Debe incluir **libros**, **alumnos** y **préstamos**.  
+Cada préstamo relaciona un alumno con un libro y guarda la **fecha de préstamo** y la **fecha de devolución prevista**.
+
+---
+
+### TEMÁTICA 2. Taller mecánico
+Crea un modelo para un taller que registra **vehículos**, **clientes** y **reparaciones**.  
+Un cliente puede tener varios vehículos, y cada reparación está asociada a un vehículo.  
+Guarda también la **fecha de entrada**, **fecha de salida** y **coste total**.
+
+---
+
+### TEMÁTICA 3. Academia de idiomas
+Diseña una base de datos para una academia que ofrece **cursos** a **alumnos**, impartidos por **profesores**.  
+Un curso puede tener varios alumnos, y un alumno puede estar en varios cursos (relación N:M).  
+Incluye la **fecha de inicio** y **nivel del curso**.
+
+---
+
+### TEMÁTICA 4. Centro deportivo
+Un centro deportivo quiere gestionar sus **socios**, **monitores** y **actividades**.  
+Cada socio puede apuntarse a varias actividades, y cada monitor puede impartir varias actividades.  
+Guarda el **nombre de la actividad**, **nivel** y **precio mensual**.
+
+
+### TEMÁTICA 5. Restaurante
+Modela una base de datos para gestionar un restaurante con **platos**, **ingredientes** y **categorías**.  
+Cada plato puede tener varios ingredientes (relación N:M).  
+Añade el **precio del plato** y el **tipo de plato** (entrante, principal, postre).
+
+---
+
+### TEMÁTICA 6. Hotel
+Diseña una base de datos con **habitaciones**, **clientes** y **reservas**.  
+Cada reserva relaciona un cliente con una habitación y contiene **fecha de entrada**, **fecha de salida** y **precio total**.
+
+---
+
+### TEMÁTICA 7. Universidad
+Crea un modelo para gestionar **profesores**, **asignaturas** y **facultades**.  
+Cada profesor pertenece a una facultad y puede impartir varias asignaturas.  
+Guarda también el **número de créditos** de cada asignatura.
+
+---
+
+### TEMÁTICA 8. Festival de música
+Diseña una base de datos para organizar un festival.  
+Debe haber **artistas**, **eventos** y **localizaciones**.  
+Cada artista puede participar en varios eventos (N:M).  
+Guarda el **nombre del evento**, **fecha** y **capacidad del recinto**.
+
+---
+
+### TEMÁTICA 9. Tienda online
+Crea una base de datos con **productos**, **clientes** y **pedidos**.  
+Cada pedido pertenece a un cliente y puede incluir varios productos (N:M).  
+Registra la **fecha del pedido** y el **importe total**.
+
+---
+
+### TEMÁTICA 10. Clínica veterinaria
+Modela una base de datos para una clínica que atiende **mascotas**, **propietarios** y **citas**.  
+Cada cita asocia una mascota con una **fecha de atención** y una **descripción del motivo**.  
+Cada propietario puede tener varias mascotas.
+
+---
+
+### TEMÁTICA 11. Plataforma de streaming
+Diseña una base de datos con **usuarios**, **películas** y **valoraciones**.  
+Cada usuario puede valorar varias películas (N:M).  
+Cada valoración incluye la **puntuación (1–5)** y un **comentario opcional**.
+
+---
+</details>
