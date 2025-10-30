@@ -277,3 +277,194 @@ Usa widgets (`many2many_tags`, `image`, `url`, `boolean_toggle`,
 etc.) para mejorar la interfaz.
 
 ------------------------------------------------------------------------
+
+# 8. Elementos de maquetación en vistas XML
+
+Dentro de las vistas tipo **formulario** (`<form>`), Odoo permite organizar los campos visualmente usando varios contenedores y estructuras.  
+Estos elementos no afectan al modelo ni a la base de datos, solo al diseño visual.
+
+---
+
+## 8.1. `<sheet>`
+
+Es el contenedor principal de la vista de formulario.  
+Dentro de él se incluye la estructura visual: grupos, pestañas, títulos, botones, etc.
+
+```xml
+<sheet>
+  ...
+</sheet>
+```
+
+El `<sheet>` aplica automáticamente márgenes, fondo y diseño coherente con el tema de Odoo.
+
+---
+
+## 8.2. `<group>`
+
+Sirve para **agrupar campos** o secciones dentro del formulario.  
+Puede anidarse y también dividir el espacio en columnas.
+
+```xml
+<group>
+  <field name="dniEmpleado"/>
+  <field name="nombreEmpleado"/>
+</group>
+```
+
+También puede recibir el atributo `col="n"` para indicar el número de columnas internas:
+
+```xml
+<group col="3">
+  <group>
+    <field name="dniEmpleado"/>
+  </group>
+  <group>
+    <field name="nombreEmpleado"/>
+  </group>
+  <group>
+    <field name="fechaNacimiento"/>
+  </group>
+</group>
+```
+
+**Explicación:**
+- El grupo exterior define 3 columnas.
+- Cada subgrupo ocupa una columna y contiene los campos.
+
+---
+
+## 8.3. `<notebook>` y `<page>`
+
+Permiten **dividir la vista en pestañas** (similar a un cuaderno con secciones).
+
+```xml
+<notebook>
+  <page string="Datos personales">
+    <field name="dniEmpleado"/>
+    <field name="nombreEmpleado"/>
+  </page>
+  <page string="Datos laborales">
+    <field name="departamento_id"/>
+    <field name="proyecto_ids"/>
+  </page>
+</notebook>
+```
+
+**Explicación:**
+- `<notebook>` agrupa las pestañas.
+- Cada `<page>` define una pestaña con el atributo `string` (título mostrado).
+
+---
+
+## 8.4. `<div>` y clases CSS
+
+Se pueden usar `<div>` con clases predefinidas para personalizar el diseño.
+
+```xml
+<div class="oe_button_box">
+  <!-- Contenedor de botones en la parte superior -->
+</div>
+```
+
+Clases comunes:
+- `oe_button_box`: zona de botones al inicio del formulario.
+- `oe_title`: define una cabecera con título e imagen.
+- `oe_chatter`: activa la zona de mensajes y seguimiento de registros.
+
+---
+
+## 8.5. Botones dentro del formulario
+
+Los botones se colocan dentro del `<header>` (parte superior) o dentro del `<div class="oe_button_box">`.
+
+```xml
+<header>
+  <button name="%(action_report_empleado)d"
+          string="Imprimir Ficha"
+          type="action"
+          class="oe_highlight"
+          icon="fa-print"/>
+</header>
+```
+
+**Explicación:**
+- `header`: zona reservada para botones globales.
+- `name`: acción que ejecuta (por ejemplo, un informe o un método Python).
+- `string`: texto visible en el botón.
+- `type`: tipo de acción (`action`, `object`, etc.).
+- `icon`: icono opcional (Font Awesome).
+
+---
+
+## 8.6. Títulos y textos
+
+Puedes usar etiquetas HTML estándar (`<h1>`, `<h2>`, `<p>`) dentro de la vista.
+
+```xml
+<group>
+  <h1>VISTA EMPLEADOS</h1>
+</group>
+```
+
+Esto permite mostrar títulos o separar secciones de forma más clara.
+
+---
+
+## 8.7. Estilo en línea
+
+Es posible aplicar estilos simples directamente en los campos o etiquetas:
+
+```xml
+<field name="dniEmpleado" style="width:70%"/>
+```
+
+Sin embargo, **se recomienda usar clases CSS** en lugar de estilos en línea para mantener un diseño limpio y coherente.
+
+---
+
+## 8.8. Elementos adicionales útiles
+
+| Elemento | Uso principal |
+|-----------|----------------|
+| `<separator string="Título"/>` | Inserta una línea separadora con un texto descriptivo. |
+| `<label for="campo"/>` | Muestra una etiqueta personalizada vinculada a un campo. |
+| `<newline/>` | Inserta un salto de línea dentro de un grupo. |
+| `<field name="campo" invisible="1"/>` | Oculta un campo en la vista. |
+
+---
+
+## 8.9. Ejemplo completo
+
+```xml
+<form string="Empleado">
+  <sheet>
+    <div class="oe_button_box">
+      <button name="%(action_report_empleado)d"
+              string="Imprimir"
+              type="action"
+              icon="fa-print"
+              class="oe_highlight"/>
+    </div>
+
+    <group>
+      <h1>VISTA EMPLEADOS</h1>
+    </group>
+
+    <notebook>
+      <page string="Datos personales">
+        <group col="3">
+          <group><field name="dniEmpleado"/></group>
+          <group><field name="nombreEmpleado"/></group>
+          <group><field name="fechaNacimiento"/></group>
+        </group>
+      </page>
+
+      <page string="Datos laborales">
+        <field name="departamento_id"/>
+        <field name="proyecto_ids" widget="many2many_tags"/>
+      </page>
+    </notebook>
+  </sheet>
+</form>
+```
