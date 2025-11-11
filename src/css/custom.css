@@ -567,3 +567,27 @@
 html[data-theme] * {
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
+/* === ✅ Repara la visualización de listas === */
+
+/* Listas no ordenadas (con viñetas) */
+.markdown ul {
+  list-style-type: disc !important; /* muestra los puntos */
+  list-style-position: outside !important;
+  margin-left: 2rem !important;
+  padding-left: 1rem !important;
+}
+
+/* Listas ordenadas (con números) */
+.markdown ol {
+  list-style-type: decimal !important; /* muestra los números */
+  list-style-position: outside !important;
+  margin-left: 2rem !important;
+  padding-left: 1rem !important;
+}
+
+/* Subniveles (ul dentro de ul) */
+.markdown ul ul,
+.markdown ol ol {
+  list-style-type: circle !important; /* cambia a círculo en subniveles */
+  margin-left: 1.5rem !important;
+}

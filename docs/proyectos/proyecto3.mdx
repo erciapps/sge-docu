@@ -1,0 +1,457 @@
+---
+sidebar_position: 3
+---
+import EntregaCard from '@site/src/components/EntregaCard';
+
+# Proyecto 3
+
+## Enunciado
+
+A partir de la **temática asignada en clase**, desarrolla junto a tu compañero **dos módulos complementarios de Odoo**, donde cada miembro del equipo será responsable de uno de los módulos.  
+
+Los módulos deberán estar **relacionados entre sí** mediante dependencias (`depends`) y deberán compartir al menos **una entidad común** (por ejemplo, un modelo del módulo A referenciado en el módulo B).  
+
+Cada módulo deberá incluir:
+
+* Todos los **campos y modelos (entidades)** definidos en la propuesta conjunta.  
+* **Relaciones** entre los modelos de ambos módulos (`one2many`, `many2one`, `many2many`).  
+* **Validaciones** y restricciones adecuadas.  
+* La **generación de al menos un informe PDF** relacionado con alguna de las entidades de su módulo.  
+* La **imagen del módulo** visible en la **lista de aplicaciones de Odoo**.  
+* Un **archivo README.md** en el repositorio que explique la estructura del módulo y cómo interactúa con el otro módulo del proyecto.  
+
+El objetivo es entregar **dos módulos funcionales, integrados y documentados**, que representen un sistema completo y coherente.
+
+---
+
+## Temáticas
+
+<details>
+  <summary>👀 Ver temáticas</summary>
+
+  ## TEMÁTICA 1. Gestión de adopciones animales
+
+  **Módulo A – Refugio de animales (`refugio_animales`)**
+
+  Modelos: `animal` (nombre, especie, edad, estado), `cuidador`, `instalacion` (nombre, capacidad, tipo).
+
+  Función: gestionar los animales, cuidadores y las instalaciones del refugio.
+
+  PDF: ficha de animal con historial y ubicación.
+
+  ---
+
+  **Módulo B – Adopciones (`adopciones_refugio`)**
+
+  Modelos: `adoptante`, `adopcion` (animal_id, adoptante_id, fecha, estado).
+
+  Depende del módulo A.
+
+  PDF: contrato o informe de adopción.
+
+  **Relaciones:** N:M entre adoptantes y animales.
+
+  ---
+
+  ## TEMÁTICA 2. Gestión de proyectos solidarios
+
+  **Módulo A – ONG y proyectos (`ong_proyectos`)**
+
+  Modelos: `proyecto` (nombre, objetivo, presupuesto), `coordinador`, `financiador`.
+
+  Función: administrar los proyectos solidarios, sus coordinadores y entidades financiadoras.
+
+  PDF: informe de proyectos activos y fuentes de financiación.
+
+  ---
+
+  **Módulo B – Voluntarios y participaciones (`ong_voluntarios`)**
+
+  Modelos: `voluntario`, `participacion` (proyecto_id, voluntario_id, horas).
+
+  Depende del módulo A.
+
+  PDF: resumen de participación por voluntario o por proyecto.
+
+  **Relaciones:** N:M entre voluntarios y proyectos.
+
+  ---
+
+  ## TEMÁTICA 3. Gestión de huerto escolar
+
+  **Módulo A – Cultivos y parcelas (`huerto_cultivos`)**
+
+  Modelos: `parcela`, `cultivo`, `temporada`.
+
+  Función: controlar los cultivos y su rotación por temporada en las distintas parcelas.
+
+  PDF: ficha de cultivo o informe por temporada.
+
+  ---
+
+  **Módulo B – Alumnos y tareas (`huerto_tareas`)**
+
+  Modelos: `alumno`, `tarea` (cultivo_id, alumno_id, descripcion, fecha).
+
+  Depende del módulo A.
+
+  PDF: informe de tareas por alumno o cultivo.
+
+  **Relaciones:** N:M entre alumnos y cultivos.
+
+  ---
+
+  ## TEMÁTICA 4. Gestión de laboratorio de informática
+
+  **Módulo A – Equipos y software (`lab_equipos`)**
+
+  Modelos: `equipo`, `software`, `aula`.
+
+  Función: registrar equipos, aulas y software instalados.
+
+  PDF: inventario de equipos y software por aula.
+
+  ---
+
+  **Módulo B – Incidencias y técnicos (`lab_mantenimiento`)**
+
+  Modelos: `incidencia`, `tecnico`.
+
+  Depende del módulo A.
+
+  PDF: parte de reparación o informe de incidencias.
+
+  **Relaciones:** N:M entre equipos y software.
+
+  ---
+
+  ## TEMÁTICA 5. Gestión de biblioteca de videojuegos
+
+  **Módulo A – Videojuegos y plataformas (`vg_juegos`)**
+
+  Modelos: `juego`, `plataforma`, `desarrollador`.
+
+  Función: catalogar videojuegos, desarrolladores y plataformas disponibles.
+
+  PDF: ficha técnica o catálogo de juegos.
+
+  ---
+
+  **Módulo B – Usuarios y reseñas (`vg_reseñas`)**
+
+  Modelos: `usuario`, `reseña` (juego_id, usuario_id, puntuacion, comentario).
+
+  Depende del módulo A.
+
+  PDF: informe de reseñas o valoración media.
+
+  **Relaciones:** N:M entre usuarios y juegos.
+
+  ---
+
+  ## TEMÁTICA 6. Gestión de excursiones escolares
+
+  **Módulo A – Excursiones y destinos (`excursiones_core`)**
+
+  Modelos: `excursion`, `destino`, `profesor`.
+
+  Función: planificar excursiones, destinos y responsables docentes.
+
+  PDF: ficha de excursión o itinerario.
+
+  ---
+
+  **Módulo B – Participantes y autorizaciones (`excursiones_participantes`)**
+
+  Modelos: `alumno`, `autorizacion` (excursion_id, alumno_id, estado).
+
+  Depende del módulo A.
+
+  PDF: listado de participantes o justificante de autorización.
+
+  **Relaciones:** N:M entre alumnos y excursiones.
+
+  ---
+
+  ## TEMÁTICA 7. Gestión de productos ecológicos locales
+
+  **Módulo A – Productores y productos (`eco_productos`)**
+
+  Modelos: `productor`, `producto`, `categoria`.
+
+  Función: mantener el catálogo de productos ecológicos y sus productores.
+
+  PDF: catálogo de productos.
+
+  ---
+
+  **Módulo B – Pedidos y clientes (`eco_pedidos`)**
+
+  Modelos: `cliente`, `pedido` (producto_id, cliente_id, fecha).
+
+  Depende del módulo A.
+
+  PDF: factura o ticket ecológico.
+
+  **Relaciones:** N:M entre productos y pedidos.
+
+  ---
+
+  ## TEMÁTICA 8. Gestión educativa integrada (un módulo base y dos dependientes)
+
+  **Módulo Base – Centros y docentes (`edu_centro`)**
+
+  Modelos: `centro`, `docente`, `departamento`.
+
+  Función: gestionar los centros educativos, departamentos y personal docente.
+
+  PDF: informe general de centros y docentes.
+
+  ---
+
+  **Módulo B – Alumnado y matrículas (`edu_alumnos`)**
+
+  Modelos: `alumno`, `matricula` (centro_id, alumno_id, curso, grupo).
+
+  Depende del módulo base.
+
+  PDF: ficha de matrícula o listado por grupo.
+
+  ---
+
+  **Módulo C – Actividades y participación (`edu_actividades`)**
+
+  Modelos: `actividad`, `participacion` (actividad_id, alumno_id, horas).
+
+  Depende de los módulos base y alumnado.
+
+  PDF: informe de participación o control de horas.
+
+  **Relaciones:**  
+  - N:M entre alumnos y actividades.  
+  - N:M entre centros y docentes.
+
+  ---
+
+</details>
+
+## Entrega
+
+Cada pareja deberá entregar **una única entrega conjunta** que incluya:
+
+* Archivo `.zip` con ambos módulos (`modulo_a` y `modulo_b`).
+* **PDF del manual conjunto de funcionamiento**, que describa:
+  - Cómo se relacionan los módulos.
+  - Qué validaciones realiza cada uno.
+  - Cómo se generan los informes PDF.
+* Archivo de texto con el **enlace al repositorio GitHub** del proyecto (ambos módulos).
+* **PDFs de los informes generados** por cada módulo.
+* Indicar claramente en el manual qué parte corresponde a cada miembro del equipo.
+
+Recuerda que ambos miembros son responsables de la correcta integración y funcionamiento del sistema completo.
+
+---
+
+<EntregaCard
+  unidad="SISTEMAS DE GESTIÓN EMPRESARIAL"
+  title="Proyecto 3 ODOO – Módulos complementarios"
+  description="Desarrollo por parejas de dos módulos interdependientes"
+  date="29-12-2025"
+  time="23:30"
+  link="https://aulasciclos2526.castillalamancha.es/mod/assign/view.php?id=706985"
+/>
+
+## EJEMPLO
+
+**TEMÁTICA. Gestión de pedidos y facturación simple**
+
+**Módulo A – Ventas y pedidos (`ventas_pedidos`)**
+
+**Modelos:** `cliente`, `producto`, `pedido`.  
+
+**Función:** gestionar clientes, productos y pedidos, registrando la fecha, el cliente y los productos asociados.  
+
+**PDF:** factura o pedido impreso con los productos, precios y totales.  
+
+
+**Módulo B – Envíos y transportistas (`ventas_envios`)**
+
+**Modelos:** `transportista`, `envio` (`pedido_id`, `transportista_id`, `fecha_envio`, `estado`, `codigo_seguimiento`).  
+
+**Depende del módulo A.**  
+
+**Función:** gestionar transportistas y registrar envíos vinculados a pedidos.  
+
+**PDF:** albarán o etiqueta de envío con información del pedido y del transportista.  
+
+---
+
+## MÓDULO A – ventas_pedidos
+
+**__manifest__.py**
+
+```python
+{
+    'name': 'Gestión de Ventas y Pedidos',
+    'version': '1.0',
+    'category': 'Educativo',
+    'author': 'Alumno A',
+    'depends': ['base'],
+    'data': [
+        # Aquí irán las vistas XML y reportes PDF
+    ],
+    'application': True,
+}
+```
+
+---
+
+**models/models.py**
+
+```python
+from odoo import models, fields
+
+# ============================================================
+# MODELO CLIENTE
+# ============================================================
+class Cliente(models.Model):
+    _name = 'ventas.cliente'
+    _description = 'Cliente del sistema de ventas'
+
+    name = fields.Char(string='Nombre completo', required=True)
+    email = fields.Char(string='Correo electrónico')
+    telefono = fields.Char(string='Teléfono')
+    direccion = fields.Char(string='Dirección')
+
+    pedido_ids = fields.One2many('ventas.pedido', 'cliente_id', string='Pedidos realizados')
+
+
+# ============================================================
+# MODELO PRODUCTO
+# ============================================================
+class Producto(models.Model):
+    _name = 'ventas.producto'
+    _description = 'Producto disponible para la venta'
+
+    name = fields.Char(string='Nombre del producto', required=True)
+    precio = fields.Float(string='Precio (€)', required=True)
+    descripcion = fields.Text(string='Descripción')
+    stock = fields.Integer(string='Unidades disponibles', default=0)
+
+    pedido_ids = fields.Many2many('ventas.pedido', string='Pedidos asociados')
+
+
+# ============================================================
+# MODELO PEDIDO
+# ============================================================
+class Pedido(models.Model):
+    _name = 'ventas.pedido'
+    _description = 'Pedido de cliente'
+
+    name = fields.Char(string='Código del pedido', required=True)
+    fecha_pedido = fields.Date(string='Fecha del pedido', default=fields.Date.today)
+    estado = fields.Selection([
+        ('pendiente', 'Pendiente'),
+        ('confirmado', 'Confirmado'),
+        ('facturado', 'Facturado'),
+        ('cancelado', 'Cancelado')
+    ], string='Estado', default='pendiente')
+
+    cliente_id = fields.Many2one('ventas.cliente', string='Cliente', required=True)
+    producto_ids = fields.Many2many('ventas.producto', string='Productos del pedido')
+    total = fields.Float(string='Importe total (€)', compute='_calcular_total', store=True)
+
+    def _calcular_total(self):
+        """Suma los precios de todos los productos asociados al pedido."""
+        for pedido in self:
+            pedido.total = sum(p.precio for p in pedido.producto_ids)
+```
+
+---
+
+## MÓDULO B – ventas_envios
+
+
+**__manifest__.py**
+
+```python
+{
+    'name': 'Gestión de Envíos y Transportistas',
+    'version': '1.0',
+    'category': 'Educativo',
+    'author': 'Alumno B',
+    'depends': ['base', 'ventas_pedidos'],
+    'data': [
+        # Aquí irán las vistas XML y reportes PDF
+    ],
+    'application': True,
+}
+```
+
+---
+
+**models/models.py**
+
+```python
+from odoo import models, fields
+
+# ============================================================
+# MODELO TRANSPORTISTA
+# ============================================================
+class Transportista(models.Model):
+    _name = 'envio.transportista'
+    _description = 'Transportista encargado de los envíos'
+
+    name = fields.Char(string='Nombre del transportista', required=True)
+    telefono = fields.Char(string='Teléfono')
+    email = fields.Char(string='Correo electrónico')
+    empresa = fields.Char(string='Empresa')
+
+    envio_ids = fields.One2many('envio.envio', 'transportista_id', string='Envíos realizados')
+
+
+# ============================================================
+# MODELO ENVÍO
+# ============================================================
+class Envio(models.Model):
+    _name = 'envio.envio'
+    _description = 'Registro de envío de pedidos'
+
+    name = fields.Char(string='Código de envío', required=True)
+    fecha_envio = fields.Date(string='Fecha de envío', default=fields.Date.today)
+    estado = fields.Selection([
+        ('pendiente', 'Pendiente'),
+        ('en_transito', 'En tránsito'),
+        ('entregado', 'Entregado'),
+        ('devuelto', 'Devuelto')
+    ], string='Estado', default='pendiente')
+
+    pedido_id = fields.Many2one('ventas.pedido', string='Pedido asociado', required=True)
+    transportista_id = fields.Many2one('envio.transportista', string='Transportista asignado')
+    codigo_seguimiento = fields.Char(string='Código de seguimiento')
+    notas = fields.Text(string='Notas adicionales')
+
+```
+
+---
+
+### **Explicación**
+
+- El módulo **`ventas_envios` depende de `ventas_pedidos`**, por lo que puede acceder al modelo `ventas.pedido`.
+- Se utiliza una relación **Many2many** entre `pedido` y `producto`, que en PostgreSQL se materializa con una tabla intermedia (`pedido_producto_rel`), creada automáticamente por Odoo.
+- Las relaciones principales son:
+  - `Cliente (1:N) Pedido`
+  - `Pedido (N:M) Producto`
+  - `Pedido (1:N) Envío`
+  - `Transportista (1:N) Envío`
+- Ambos módulos pueden generar **informes PDF complementarios**:
+  - `ventas_pedidos`: pedido o factura.
+  - `ventas_envios`: albarán o etiqueta de envío.
+
+<figure>
+  <img src="/img/modulos/ddbbejemplo.png" alt="ddbbejemplo" width="600" />
+</figure>
+
+---
+
+
