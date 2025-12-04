@@ -42,3 +42,8 @@ Un **sistema de información** no es solo el conjunto de recursos tecnológicos 
 En particular, se puede definir un **sistema de información empresarial (SIE)** o **sistema de información gerencial (SIG)** como el conjunto de **aplicaciones** que acometen las necesidades de **tratamiento simultáneo de la información** necesaria para el funcionamiento de la empresa por parte de un grupo de usuarios, proporcionando una **gestión automatizada del negocio**.  
 
 No solo se trata de aprovechar las aplicaciones de escritorio y de productividad personal como procesadores de texto, hojas de cálculo y bases de datos más o menos compartidas, sino de **desarrollar plataformas de uso simultáneo** que incluyan los **módulos específicos** que sostienen todos los aspectos de las necesidades de administración de una empresa.
+
+
+<div>
+    <iframe src="/pdf/erp-crm.pdf" width="100%" height="500px" />
+</div>
