@@ -43,7 +43,6 @@ En particular, se puede definir un **sistema de información empresarial (SIE)**
 
 No solo se trata de aprovechar las aplicaciones de escritorio y de productividad personal como procesadores de texto, hojas de cálculo y bases de datos más o menos compartidas, sino de **desarrollar plataformas de uso simultáneo** que incluyan los **módulos específicos** que sostienen todos los aspectos de las necesidades de administración de una empresa.
 
-
 <div>
     <iframe src="/pdf/erp-crm.pdf" width="100%" height="500px" />
 </div>
